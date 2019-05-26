@@ -1,0 +1,14 @@
+
+(def one 1) 
+    => 1
+(def inc (func (x) (+ x 1)))
+    => Funcion: inc (x)
+
+(inc 1)
+    => 2
+
+#(comment list)
+
+time(repear((+ 1 1) 10))
+=> 10.0 second
+   (2 2 2 2 2 2 2 2 2 10)
