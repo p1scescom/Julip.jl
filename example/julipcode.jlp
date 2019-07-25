@@ -1,0 +1,22 @@
+; "," == " " in code
+(defn hello :(S AbstractString T Integer) (S name T age)
+  (println (format "{}さんは{}才にみえます" name (- age 10))))
+
+(struct Point :(T)
+    (x T
+     y T))
+
+(comment こめんと
+　() はあわせないといけない)
+
+#(これもコメント
+  です)
+
+(defn main UInt :(Vector String) (args)
+  (let (a Int (length args)
+        c (atom 0)
+        inc! (fn (a Atom) (+ 1 fn)))
+    (loop (< (get! c) 10)
+      (inc! c)
+      (println c))
+    (inc a)))
