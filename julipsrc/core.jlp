@@ -1,0 +1,2 @@
+(macro defn (a &b)
+  (def $a (fn $&b)))
