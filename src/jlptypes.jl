@@ -13,11 +13,11 @@ struct JLPSymbol <: JLPType
 end
 
 struct JLPFloat <: JLPNumber
-    val::Float64
+    val::Float32
 end
 
 struct JLPInteger <: JLPNumber
-    val::Int64
+    val::Int32
 end
 
 struct JLPBool <: JLPNumber
@@ -35,12 +35,15 @@ end
 
 struct JLPNil <: JLPAbstList
 end
+
+const jlpnil = JLPNil()
+
 struct JLPFunc <: JLPAbstList
     val
 end
 
 struct JLPList <: JLPAbstList
-    val::Union{JLPSymbol,Nothing}
+    val::Union{JLPSymbol, JLPNil}
     car::JLPSexp
     cdr::JLPAbstList
 
