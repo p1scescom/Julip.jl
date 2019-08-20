@@ -1,0 +1,10 @@
+(defn hoge Int (num Int)
+  (let (v ((Vector Int) num))
+    (set v 0 (getchar))
+    (putchar (get v 0))
+    (if (= 48 (get v 0))
+       0
+       (hoge num))))
+
+(defn main Int ()
+  (hoge 10))

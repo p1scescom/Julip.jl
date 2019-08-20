@@ -1,0 +1,7 @@
+(defn fib Int (all Int bef Int count Int maxindex Int)
+  (if (= maxindex count)
+    all
+    (fib (+ all bef) all (+ count 1) maxindex)))
+
+(defn main Int ()
+  (fib 1 0 1 10))

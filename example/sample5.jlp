@@ -1,0 +1,4 @@
+(defn main Int ()
+  (let (a ((Vector Int) 10))
+    (set a 0 1)
+    (get a 0)))
