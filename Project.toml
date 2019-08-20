@@ -3,6 +3,10 @@ uuid = "8423dec8-7e33-11e9-203c-dbb22f9b3817"
 authors = ["p1scescom <piscesuoza0317@gmail.com>"]
 version = "0.1.0"
 
+[deps]
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
+StringBuilders = "db12335b-fddc-5e1b-b0ee-42071d21ae50"
+
 [compat]
 julia = "1"
 
