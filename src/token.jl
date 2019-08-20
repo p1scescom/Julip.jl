@@ -88,6 +88,9 @@ function tokenize(code::String)
         if '0' <= c <= '9'
             if issttstarted()
                 push!(state, jlpInt)
+            elseif length(tmpstr) == 1 && tmpstr[end] == '-'
+                pop!(state)
+                push!(state, jlpInt)
             end
             addtmp!(c)
 
