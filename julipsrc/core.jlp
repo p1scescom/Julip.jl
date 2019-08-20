@@ -1,2 +1,31 @@
 (macro defn (a &b)
   (def $a (fn $&b)))
+
+(macro time (&a)
+  (let (starttime (now)
+        process $&a
+        endtime (now))
+    (- endtime starttime)
+    process))
+
+(primitive Int64 64)
+
+(primitive Int 32)
+
+(primitive Int8 8)
+
+(primitive Char 8)
+
+(primitive Bool 1)
+
+(mutstruct (Vector T) (length Int64))
+
+(let (vec ((Vector Int) 10))
+  (set vec 0 1)
+  (get vec 0))
+
+(defn now Int () 1)
+
+(defn getchar Int () 0)
+
+(defn putchar Int (a Int) 0)
