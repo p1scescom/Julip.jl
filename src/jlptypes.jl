@@ -13,11 +13,11 @@ struct JLPSymbol <: JLPType
 end
 
 struct JLPFloat <: JLPNumber
-    val::Float64
+    val::Float32
 end
 
 struct JLPInteger <: JLPNumber
-    val::Int64
+    val::Int32
 end
 
 struct JLPBool <: JLPNumber
@@ -35,15 +35,36 @@ end
 
 struct JLPNil <: JLPAbstList
 end
-struct JLPFunc <: JLPAbstList
-    val
-end
+
+const jlpnil = JLPNil()
+
+Base.iterate(iter::JLPNil) = nothing
 
 struct JLPList <: JLPAbstList
-    val::Union{JLPSymbol,Nothing}
+    val::Union{JLPSymbol, JLPNil}
     car::JLPSexp
     cdr::JLPAbstList
 
     JLPList(a ,b ,c) = new(a, b ,c)
     JLPList(a ,b) = new(JLPSymbol(""), a, b)
+end
+
+Base.iterate(iter::JLPList) = (iter.car, iter.cdr)
+
+function Base.iterate(iter::JLPList, state::Union{JLPList, JLPNil})
+    if typeof(state) <: JLPNil
+        nothing
+    else
+        (state.car, state.cdr)
+    end
+end
+
+function add_list(l::JLPAbstList, target::JLPAbstList)
+    if l == jlpnil
+        return target
+    elseif l.cdr == jlpnil
+        return JLPList(l.val, l.car, target)
+    else
+        return JLPList(l.val, l.car, add_list(l.cdr, target))
+    end
 end

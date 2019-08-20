@@ -1,0 +1,11 @@
+(defn fib Int (all Int bef Int count Int maxindex Int)
+  (if (= maxindex count)
+    all
+    (fib (+ all bef) all (+ count 1) maxindex)))
+
+(defn main Int ()
+  (let (a (+ 1 0)
+        b 0
+        c 1
+        endc (- 10 2))
+    (time (fib a b c endc))))
